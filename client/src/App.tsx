@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useEffect } from 'react';
+import React, {FormEvent, useState, useEffect, useRef} from 'react';
 import styles from './App.module.css';
 import { io, Socket } from 'socket.io-client';
 
@@ -6,6 +6,7 @@ const App: React.FC = () => {
     const [socket, setSocket] = useState<Socket | null>(null);
     const [message, setMessage] = useState<string>('');
     const [messages, setMessages] = useState<string[]>([]);
+    const messagesEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const newSocket = io('http://localhost:3000');
