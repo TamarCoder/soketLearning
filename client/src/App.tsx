@@ -26,12 +26,23 @@ const App: React.FC = () => {
         };
     }, []);
 
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+
+    }, [messages]);
+
+
+
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (message.trim() && socket) {
             console.log('Sending message:', message);
+
+            setMessages((prev) => [...prev, message]);
+
             socket.emit('chat message', message);
+
             setMessage('');
         }
     };
@@ -46,6 +57,8 @@ const App: React.FC = () => {
                         </span>
                     </li>
                 ))}
+
+                <div ref={messagesEndRef}/>
             </ul>
 
             <form
