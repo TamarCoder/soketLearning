@@ -49,6 +49,24 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
+            <div className={styles.roomControls}>
+                 <div className={styles.inputsContainer}>
+                     <input
+                     type={'text'}
+                     placeholder='Enter room name'
+                     className={styles.input}
+                     />
+                     <button className={styles.JoinRoom}>Join Room</button>
+                 </div>
+                 <div className={styles.currentRoomContainer}>
+                     <span className={styles.span}>Curent Room: <strong>{}</strong></span>
+                     <button className={styles.Leavbutton}>Leave Room</button>
+                 </div>
+            </div>
+
+
+
+
             <ul id="messages" className={styles.lists}>
                 {messages.map((msg, index) => (
                     <li key={index} className={styles.listItem}>

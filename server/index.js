@@ -20,12 +20,23 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('a user connected:', socket.id);
 
-    socket.on('chat message', (msg) => {
-        console.log('📨 Received:', msg);
-        socket.broadcast.emit('chat message', msg);
+    // socket.on('chat message', (msg) => {
+    //     console.log('📨 Received:', msg);
+    //     socket.broadcast.emit('chat message', msg);
+    //
+    //     console.log('✅ Broadcasted to others!');
+    // });
 
-        console.log('✅ Broadcasted to others!');
-    });
+    // 1. ოთახში შესვლის ლოგიკა ბექში
+     socket.on('join room', (roomName) =>{
+         socket.join(roomName);
+         console.log(`${socket.id} joined room: ${roomName}`);
+
+         /// ოთახის სხვა წევრებს ეტყობინება
+         socket.to(roomName).emit('user joined', `${socket.id} joined the room.`);
+     });
+
+
 
     socket.on('disconnect', () => {
         console.log('user disconnected:', socket.id);

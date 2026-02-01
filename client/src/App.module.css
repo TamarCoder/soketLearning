@@ -79,3 +79,69 @@ flex-direction: column;
 .button:active {
     background: green;
 }
+
+.roomControls{
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+}
+.inputsContainer{
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.inputsContainer .input{
+  max-width: 700px;
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+}
+.JoinRoom{
+  padding: 5px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #0cde0c;
+  color: whitesmoke;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.currentRoomContainer{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+}
+.span{
+    width: 150px;
+     height: 30px;
+    font-size: 16px;
+
+ 
+   display: flex;
+  align-items: center;
+
+}
+
+.Leavbutton{
+    padding: 5px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #de0c0c;
+    color: whitesmoke;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
